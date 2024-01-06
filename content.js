@@ -24,7 +24,7 @@ function replaceText(text) {
 
 /**
  * Recursively replace text nodes in the given node.
- * Recursion on nodes, until we reach a text node.
+ * Recurse on nodes, until we reach a text node.
  */
 function replaceTextNodes(node) {
     if(node.nodeType === Node.TEXT_NODE) {
@@ -35,3 +35,26 @@ function replaceTextNodes(node) {
         }
     }
 }
+
+/**
+ * Observe the document for changes, and replace text nodes in any added nodes.
+ */
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        //Handle added or removed nodes
+        if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach((node) => {
+                replaceTextNodes(node);
+            });
+        }
+    }
+    )
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+
+
