@@ -2,7 +2,18 @@
     "name": "MagicCyrillic",
     "version": "0.1.0",
     "description": "Learn Cyrillic by magically transforming letters on websites.",
-    "permissions": ["activeTab"]
-    
+    "permissions": ["activeTab"],
 
+    "action": {
+		"default_popup": "popup.html"
+		},
+		
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js"],
+			"run_at": "document_end"
+		}
+		
+		]
 }
