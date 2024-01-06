@@ -21,3 +21,17 @@ function replaceText(text) {
       }
     });
 }
+
+/**
+ * Recursively replace text nodes in the given node.
+ * Recursion on nodes, until we reach a text node.
+ */
+function replaceTextNodes(node) {
+    if(node.nodeType === Node.TEXT_NODE) {
+        node.textContent = replaceText(node.textContent);
+    } else {
+        for(const childNode of node.childNodes) {
+            replaceTextNodes(childNode);
+        }
+    }
+}
