@@ -1,8 +1,9 @@
 {
+    "manifest_version": 3,
     "name": "MagicCyrillic",
     "version": "0.1.0",
     "description": "Learn Cyrillic by magically transforming letters on websites.",
-    "permissions": ["activeTab"],
+    "permissions": ["activeTab", "storage"],
 
     "action": {
 		"default_popup": "popup.html"
