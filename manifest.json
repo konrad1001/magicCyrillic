@@ -1,0 +1,8 @@
+{
+    "name": "MagicCyrillic",
+    "version": "0.1.0",
+    "description": "Learn Cyrillic by magically transforming letters on websites.",
+    "permissions": ["activeTab"]
+    
+
+}
